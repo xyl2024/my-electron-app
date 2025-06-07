@@ -3,13 +3,17 @@
 // app 是 electron 的模块，控制程序的事件生命周期
 // BrowserWindow 模块创建和管理app的窗口
 const { app, BrowserWindow } = require('electron/main')
+const path = require('node:path')
 
 // () => {} 箭头函数
 // 这里是将这个箭头函数赋值给createWindow变量了，可以通过createWindow()调用
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
-        height: 600
+        height: 600,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js') // 将预加载脚本附加到渲染进程
+        },
     })
 
     win.loadFile('index.html')
