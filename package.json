@@ -12,5 +12,8 @@
   "description": "",
   "devDependencies": {
     "electron": "^36.4.0"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.0"
   }
 }
